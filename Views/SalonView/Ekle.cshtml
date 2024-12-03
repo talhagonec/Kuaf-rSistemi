@@ -1,0 +1,27 @@
+﻿@model KuaforIsletmeYonetim.Models.Salon
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-success text-white">
+            <h3>Yeni Salon Ekle</h3>
+        </div>
+        <div class="card-body">
+            <form method="post" asp-controller="Salon" asp-action="Ekle">
+                <div class="mb-3">
+                    <label for="Ad" class="form-label">Ad</label>
+                    <input type="text" class="form-control" id="Ad" name="Ad" />
+                </div>
+                <div class="mb-3">
+                    <label for="Adres" class="form-label">Adres</label>
+                    <input type="text" class="form-control" id="Adres" name="Adres" />
+                </div>
+                <div class="mb-3">
+                    <label for="Telefon" class="form-label">Telefon</label>
+                    <input type="text" class="form-control" id="Telefon" name="Telefon" />
+                </div>
+                <button type="submit" class="btn btn-primary">Ekle</button>
+                <a href="/Salon/Index" class="btn btn-secondary">Geri</a>
+            </form>
+        </div>
+    </div>
+</div>

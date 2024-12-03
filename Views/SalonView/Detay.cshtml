@@ -1,4 +1,32 @@
-﻿<h1>Detay Sayfası</h1>
-<p>Bu, Detay görünümünün çalıştığını gösterir.</p>
-<a href="/SalonView/Index">Ana Sayfaya Geri Dön</a>
-http://localhost:7140/SalonView/Detay
+﻿@model KuaforIsletmeYonetim.Models.Salon
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header text-white" style="background: linear-gradient(to right, #43cea2, #185a9d);">
+            <h2>Salon Detayları</h2>
+        </div>
+        <div class="card-body" style="background-color: #f9f9f9;">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><strong>Salon Adı:</strong></h5>
+                    <p class="text-muted">@Model.Ad</p>
+                </div>
+                <div class="col-md-6">
+                    <h5><strong>Telefon:</strong></h5>
+                    <p class="text-muted">@Model.Telefon</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5><strong>Adres:</strong></h5>
+                    <p class="text-muted">@Model.Adres</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-end">
+            <a href="/SalonView/Index" class="btn btn-secondary shadow">Geri</a>
+            <a asp-controller="SalonView" asp-action="Duzenle" asp-route-id="@Model.Id" class="btn btn-warning shadow">Düzenle</a>
+            <a asp-controller="SalonView" asp-action="Sil" asp-route-id="@Model.Id" class="btn btn-danger shadow">Sil</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿/* Genel Gövde */
+body {
+    background: linear-gradient(to bottom right, #8360c3, #2ebf91);
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Kart Stili */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Tablo */
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+    .table th {
+        text-align: center;
+    }
+
+/* Başlık */
+h1.display-4 {
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Düğmeler */
+.btn {
+    font-weight: bold;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+    .btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }

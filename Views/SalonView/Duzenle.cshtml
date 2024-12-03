@@ -1,0 +1,21 @@
+﻿@model KuaforIsletmeYonetim.Models.Salon
+
+<div class="container mt-4">
+    <h2>Salon Düzenle</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label for="Ad" class="form-label">Ad</label>
+            <input type="text" class="form-control" id="Ad" name="Ad" value="@Model.Ad" />
+        </div>
+        <div class="mb-3">
+            <label for="Adres" class="form-label">Adres</label>
+            <input type="text" class="form-control" id="Adres" name="Adres" value="@Model.Adres" />
+        </div>
+        <div class="mb-3">
+            <label for="Telefon" class="form-label">Telefon</label>
+            <input type="text" class="form-control" id="Telefon" name="Telefon" value="@Model.Telefon" />
+        </div>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+        <a href="/SalonView/Index" class="btn btn-secondary">Geri</a>
+    </form>
+</div>

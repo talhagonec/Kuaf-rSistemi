@@ -1,0 +1,18 @@
+﻿@model KuaforIsletmeYonetim.Models.Salon
+
+<div class="container mt-4">
+    <div class="alert alert-danger">
+        <h4>Silme Onayı</h4>
+        <p>Bu salonu silmek istediğinizden emin misiniz?</p>
+        <ul>
+            <li><strong>Ad:</strong> @Model.Ad</li>
+            <li><strong>Adres:</strong> @Model.Adres</li>
+            <li><strong>Telefon:</strong> @Model.Telefon</li>
+        </ul>
+    </div>
+    <form method="post" asp-action="SilConfirmed" asp-controller="SalonView">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <button type="submit" class="btn btn-danger">Evet, Sil</button>
+        <a href="/SalonView/Index" class="btn btn-secondary">Hayır, İptal Et</a>
+    </form>
+</div>

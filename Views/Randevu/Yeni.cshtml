@@ -1,0 +1,38 @@
+﻿@model KuaforIsletmeYonetim.Models.Randevu
+
+<div class="container mt-5">
+    <div class="p-5 text-white rounded shadow" style="background: linear-gradient(to right, #43cea2, #185a9d);">
+        <h1 class="display-4 text-center">Yeni Randevu Ekle</h1>
+        <p class="text-center">Lütfen aşağıdaki bilgileri doldurarak yeni bir randevu oluşturun.</p>
+    </div>
+
+    <form asp-action="Yeni" asp-controller="Randevu" method="post" class="mt-4">
+        <!-- Müşteri Adı -->
+        <div class="mb-3">
+            <label for="MusteriAdi" class="form-label">Müşteri Adı</label>
+            <input type="text" class="form-control" id="MusteriAdi" name="MusteriAdi" required placeholder="Müşteri adını giriniz" value="@Model?.MusteriAdi" />
+        </div>
+
+        <!-- Çalışan Seçimi -->
+        <div class="mb-3">
+            <label for="CalisanId" class="form-label">Çalışan</label>
+            @Html.DropDownListFor(
+            model => model.CalisanId,
+            new SelectList(ViewBag.Calisanlar, "Id", "Ad", Model?.CalisanId),
+            "Çalışan seçiniz",
+            new { @class = "form-select", required = "required" }
+            )
+        </div>
+
+        <!-- Randevu Tarihi -->
+        <div class="mb-3">
+            <label for="BaslangicSaati" class="form-label">Randevu Tarihi</label>
+            <input type="date" class="form-control" id="BaslangicSaati" name="BaslangicSaati" required value="@Model?.BaslangicSaati.ToString("yyyy-MM-dd")" />
+        </div>
+
+        <!-- Randevu Kaydet Butonu -->
+        <div class="text-center">
+            <button type="submit" class="btn btn-success btn-lg shadow px-5">Randevu Kaydet</button>
+        </div>
+    </form>
+</div>

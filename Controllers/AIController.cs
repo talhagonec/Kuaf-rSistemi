@@ -2,7 +2,7 @@
 
 namespace KuaforIsletmeYonetim.Controllers
 {
-    public class HomeController : Controller
+    public class AIController : Controller
     {
         public IActionResult Index()
         {
