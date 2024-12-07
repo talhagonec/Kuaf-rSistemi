@@ -1,40 +1,33 @@
+using KuaforDbSistemi.Data;
 using Microsoft.EntityFrameworkCore;
-using KuaforIsletmeYonetim.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// PostgreSQL baðlantýsýný ekleyin
-builder.Services.AddDbContext<KuaforContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-// Controller ve View hizmetlerini ekleyin
+// Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Veritabaný baðlamýný kaydet
+builder.Services.AddDbContext<KuaforContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
-// Middleware yapýlandýrmasý
+// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-else
-{
-    app.UseDeveloperExceptionPage(); // Hata sayfasý geliþtirme ortamýnda görünür
-}
 
-app.UseHttpsRedirection(); // HTTP'den HTTPS'ye yönlendirme
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization(); // Yetkilendirme eklenmesi (opsiyonel)
+app.UseAuthorization();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
-});
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
